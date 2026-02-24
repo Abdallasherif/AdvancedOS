@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FCFS Scheduler UI</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="app">
+    <section class="card hero">
+      <h1>🚀 FCFS CPU Scheduler</h1>
+      <p>Enter process details and instantly compute total waiting time with a clean visual timeline.</p>
+    </section>
+
+    <section class="card controls">
+      <div class="inputs-grid">
+        <label>
+          Process ID
+          <input id="pid" type="number" min="1" placeholder="e.g. 5" />
+        </label>
+        <label>
+          Arrival Time
+          <input id="arrival" type="number" min="0" placeholder="e.g. 3" />
+        </label>
+        <label>
+          Burst Time
+          <input id="burst" type="number" min="1" placeholder="e.g. 7" />
+        </label>
+      </div>
+      <div class="button-row">
+        <button id="addProcessBtn" class="btn primary">Add Process</button>
+        <button id="loadExampleBtn" class="btn">Load Example</button>
+        <button id="clearBtn" class="btn danger">Clear</button>
+      </div>
+    </section>
+
+    <section class="card table-card">
+      <h2>Process List</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Process</th>
+            <th>Arrival</th>
+            <th>Burst</th>
+            <th>Waiting</th>
+          </tr>
+        </thead>
+        <tbody id="processTableBody">
+          <tr class="empty-row"><td colspan="4">No processes yet. Add one to begin.</td></tr>
+        </tbody>
+      </table>
+      <div class="button-row">
+        <button id="computeBtn" class="btn success">Compute Total Waiting Time</button>
+      </div>
+      <p id="totalWaitingTime" class="result">Total Waiting Time: 0</p>
+    </section>
+
+    <section class="card gantt-card">
+      <h2>Execution Timeline (FCFS)</h2>
+      <div id="gantt" class="gantt"></div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
